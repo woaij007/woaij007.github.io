@@ -1,0 +1,644 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Start ionic with API Demo | woaij007&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Jun Mao">
+    
+
+    
+    <meta name="description" content="Today I am going to build my first ionic project with Instagram API. Because it’s easier to just get data from API rather than SQLite or local storage.  Create a blank Ionic projectInstall IonicIonic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Start ionic with API Demo">
+<meta property="og:url" content="http://woaij007.com/2015/08/10/Start-ionic-with-API-Demo/index.html">
+<meta property="og:site_name" content="woaij007&#39;s blog">
+<meta property="og:description" content="Today I am going to build my first ionic project with Instagram API. Because it’s easier to just get data from API rather than SQLite or local storage.  Create a blank Ionic projectInstall IonicIonic">
+<meta property="og:locale">
+<meta property="og:image" content="http://woaij007.com/img/blank_app.png">
+<meta property="og:image" content="http://woaij007.com/img/client_info.png">
+<meta property="og:image" content="http://woaij007.com/img/user_id.png">
+<meta property="og:image" content="http://woaij007.com/img/request_response.png">
+<meta property="og:image" content="http://woaij007.com/img/card_image.png">
+<meta property="og:image" content="http://woaij007.com/img/res_data.png">
+<meta property="og:image" content="http://woaij007.com/img/taylor_swift.png">
+<meta property="article:published_time" content="2015-08-10T22:58:04.000Z">
+<meta property="article:modified_time" content="2020-08-30T06:57:01.749Z">
+<meta property="article:author" content="Jun Mao">
+<meta property="article:tag" content="Ionic">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="Instagram">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://woaij007.com/img/blank_app.png">
+<meta name="twitter:creator" content="@woaij007">
+
+    
+    <link rel="alternative" href="/atom.xml" title="woaij007&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/MrCola.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/MrCola.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/%02.css">
+<link rel="stylesheet" href="/.css">
+
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="woaij007&#39;s blog" title="woaij007&#39;s blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="woaij007&#39;s blog">woaij007&#39;s blog</a></h1>
+				<h2 class="blog-motto">弃捐勿复道，努力加餐饭！</h2>
+			</div>
+			
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/豆瓣FM">豆瓣FM</a></li>
+					
+						<li><a href="/resume">Resume</a></li>
+					
+					<li>
+ 					
+					<form class="search" >
+						<label>Search</label>
+						<input type="text" id="st-search-input" maxlength="20" placeholder="Search" />
+					</form>
+					<script type="text/javascript">
+					  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+					  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+					  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+					  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+					  _st('install','yJPDV1qozr7Exqos1MtY','2.0.0');
+					</script>
+ 					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/10/Start-ionic-with-API-Demo/" title="Start ionic with API Demo" itemprop="url">Start ionic with API Demo</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/resume" title="Jun Mao" target="_blank" itemprop="author">Jun Mao</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-10T22:58:04.000Z" itemprop="datePublished"> Published 2015-08-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-blank-Ionic-project"><span class="toc-number">1.</span> <span class="toc-text">Create a blank Ionic project</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Ionic"><span class="toc-number">1.1.</span> <span class="toc-text">Install Ionic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Start-a-project"><span class="toc-number">1.2.</span> <span class="toc-text">Start a project</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-your-app"><span class="toc-number">1.3.</span> <span class="toc-text">Run your app</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Instagram-API"><span class="toc-number">2.</span> <span class="toc-text">Get Instagram API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-Your-Application"><span class="toc-number">2.1.</span> <span class="toc-text">Register Your Application</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-API-Console"><span class="toc-number">2.2.</span> <span class="toc-text">Use API Console</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-the-API-demo"><span class="toc-number">3.</span> <span class="toc-text">Build the API demo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Card-Images-CSS"><span class="toc-number">3.1.</span> <span class="toc-text">Use Card Images CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Get-information-from-API"><span class="toc-number">3.2.</span> <span class="toc-text">Get information from API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Put-data-in-our-UI"><span class="toc-number">3.3.</span> <span class="toc-text">Put data in our UI</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>Today I am going to build my first ionic project with Instagram API. Because it’s easier to just get data from API rather than SQLite or local storage. </p>
+<h2 id="Create-a-blank-Ionic-project"><a href="#Create-a-blank-Ionic-project" class="headerlink" title="Create a blank Ionic project"></a>Create a blank Ionic project</h2><h3 id="Install-Ionic"><a href="#Install-Ionic" class="headerlink" title="Install Ionic"></a>Install Ionic</h3><p>Ionic is a framework based on <a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>. Make sure you already have installed Node.js. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cordova ionic</span><br></pre></td></tr></table></figure>
+<p><em>Follow the <a target="_blank" rel="noopener" href="http://cordova.apache.org/docs/en/3.3.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide">Android</a> and <a target="_blank" rel="noopener" href="http://cordova.apache.org/docs/en/3.3.0/guide_platforms_ios_index.md.html#iOS%20Platform%20Guide">iOS</a> platform guides to install platform dependencies you need.</em></p>
+<a id="more"></a>
+<h3 id="Start-a-project"><a href="#Start-a-project" class="headerlink" title="Start a project"></a>Start a project</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ionic start myApp blank</span><br></pre></td></tr></table></figure>
+<p>Ionic provide ready-made app templates as <code>tabs</code> and <code>sidemenu</code>, here I just started a <code>blank</code> one.</p>
+<h3 id="Run-your-app"><a href="#Run-your-app" class="headerlink" title="Run your app"></a>Run your app</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> myApp</span><br><span class="line">$ ionic serve</span><br></pre></td></tr></table></figure>
+<p>Here I just run the app use Cordova directly. Later in another article I will write how to build an iOS app using Ionic.</p>
+<p>Visit <a href="localhost:8100">localhost:8100</a>, you can see the page as below. In chrome browser you can use <a target="_blank" rel="noopener" href="https://developer.chrome.com/devtools/docs/device-mode">Device Mode &amp; Mobile Emulation</a> to make the web just like an app in iPhone 6.<br><img src="/img/blank_app.png"></p>
+<h2 id="Get-Instagram-API"><a href="#Get-Instagram-API" class="headerlink" title="Get Instagram API"></a>Get Instagram API</h2><p>In order to use Instagram API in our app, we need to learn how to use it first.</p>
+<h3 id="Register-Your-Application"><a href="#Register-Your-Application" class="headerlink" title="Register Your Application"></a>Register Your Application</h3><p>Visit <a target="_blank" rel="noopener" href="https://instagram.com/developer/">API - Instagram</a> and log in with your Instagram account. If you don’t have one yet, download Instagram app from App Store or Google Play store in your cellphone and create a new account.</p>
+<p>After you logged in to <a target="_blank" rel="noopener" href="https://instagram.com/developer/">API - Instagram</a>, you need to clike <code>Register Your Application</code> to register. After you done, you will get to a page like below, where you can get the information needed to get <code>access_token</code> for your API request.<br><img src="/img/client_info.png"></p>
+<h3 id="Use-API-Console"><a href="#Use-API-Console" class="headerlink" title="Use API Console"></a>Use API Console</h3><p>Click the <code>API Console</code> side bar to test making request to Instagram API. Select <strong>Service</strong> to <code>GET users/&#123;user-id&#125;/media/recent</code> and <strong>Authentication</strong> to <code>OAuth 2</code>. This API let you access to an Instagram user’s recent media posts by its <code>user-id</code>.</p>
+<p>For example, I want to know Taylor Swift’s recent posts. I will go <a target="_blank" rel="noopener" href="http://jelled.com/instagram/lookup-user-id#">Lookup Your Instagram User ID</a> page, type in <code>taylorswift</code>, which is Taylor Swift’s Instagram user name to get her <code>user-id</code> is <code>11830955</code> as below.<br><img src="/img/user_id.png"></p>
+<p>Back to API Console, click <code>Template</code>, input the <code>user-id</code>, and click <code>Send</code>. We will see our request and response as below.<br><img src="/img/request_response.png"><br>Here we get the whole request is </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.instagram.com/v1/users/11830955/media/recent?access_token=1438541261.1fb234f.a3c0b2474c3447b2b3ecdbcd97244ac6</span><br></pre></td></tr></table></figure>
+<p>Now we are good to use this in our Ionic app.</p>
+<h2 id="Build-the-API-demo"><a href="#Build-the-API-demo" class="headerlink" title="Build the API demo"></a>Build the API demo</h2><h3 id="Use-Card-Images-CSS"><a href="#Use-Card-Images-CSS" class="headerlink" title="Use Card Images CSS"></a>Use Card Images CSS</h3><p>Ionic has many CSS components on <a target="_blank" rel="noopener" href="http://ionicframework.com/docs/components">CSS Components</a>. Here we choose <a target="_blank" rel="noopener" href="http://ionicframework.com/docs/components/#card-images">Card Images</a> to show Taylor Swift’s recent Instagram posts in our app.</p>
+<p>Copy the following code into ‘/myApp/www/index.html’ between <code>&lt;ion-content&gt;</code> and <code>&lt;/ion-content&gt;</code>. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">&quot;list card&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">  &lt;div class=<span class="string">&quot;item item-avatar&quot;</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">&quot;avatar.jpg&quot;</span>&gt;</span><br><span class="line">    &lt;h2&gt;Pretty Hate Machine&lt;/h2&gt;</span><br><span class="line">    &lt;p&gt;Nine Inch Nails&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;div class=<span class="string">&quot;item item-image&quot;</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">&quot;cover.jpg&quot;</span>&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a class=<span class="string">&quot;item item-icon-left assertive&quot;</span> href=<span class="string">&quot;#&quot;</span>&gt;</span><br><span class="line">    &lt;i class=<span class="string">&quot;icon ion-music-note&quot;</span>&gt;&lt;/i&gt;</span><br><span class="line">    Start listening</span><br><span class="line">  &lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>Run the app, and you will get:<br><img src="/img/card_image.png"></p>
+<h3 id="Get-information-from-API"><a href="#Get-information-from-API" class="headerlink" title="Get information from API"></a>Get information from API</h3><p>Now we need to get information from Taylor Swift’s Instagram.</p>
+<p>In <code>/myApp/www/js/app.js</code>, make change of line</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">&#x27;starter&#x27;</span>, [<span class="string">&#x27;ionic&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<p>to be </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myapp = angular.module(<span class="string">&#x27;starter&#x27;</span>, [<span class="string">&#x27;ionic&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<p>and add a controller named <code>ApiCtrl</code> by adding following codes:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">myapp.controller(<span class="string">&#x27;ApiCtrl&#x27;</span>,<span class="keyword">function</span>(<span class="variable">$scope</span>, <span class="variable">$http</span>, <span class="variable">$q</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$scope</span>.init = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    <span class="variable">$scope</span>.getImages()</span><br><span class="line">    .<span class="keyword">then</span>(<span class="keyword">function</span>(res)&#123;</span><br><span class="line">      // success</span><br><span class="line">      console.log(<span class="string">&#x27;Images: &#x27;</span>,res)</span><br><span class="line">      <span class="variable">$scope</span>.imageList = res.data;</span><br><span class="line">    &#125;, <span class="keyword">function</span>(status)&#123;</span><br><span class="line">      // err</span><br><span class="line">      console.log(<span class="string">&#x27;Error: &#x27;</span>, status)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$scope</span>.getImages = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    var defer = <span class="variable">$q</span>.defer();</span><br><span class="line">    var url = <span class="string">&quot;https://api.instagram.com/v1/users/11830955/media/recent?access_token=1438541261.1fb234f.a3c0b2474c3447b2b3ecdbcd97244ac6&amp;callback=JSON_CALLBACK&quot;</span>;</span><br><span class="line">    <span class="variable">$http</span>.jsonp(url)</span><br><span class="line">    .success(<span class="keyword">function</span>(res)&#123;</span><br><span class="line">      defer.resolve(res)</span><br><span class="line">    &#125;)</span><br><span class="line">    .error(<span class="keyword">function</span>(status, err)&#123;</span><br><span class="line">      defer.reject(status)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> defer.promise;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$scope</span>.init();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>In <code>index.html</code>, add control by changing </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ion-content&gt;</span><br></pre></td></tr></table></figure>
+<p>to</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ion-content ng-controller=<span class="string">&quot;ApiCtrl&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>meaning in this content part, we will use data from <code>ApiCtrl</code> controller.</p>
+<p>Run the app, we can get <code>res</code> as follow in chrome developer mode’s <code>Console</code> tag.<br><img src="/img/res_data.png"><br>This is because we have line </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">&#x27;Images: &#x27;</span>,res)</span><br></pre></td></tr></table></figure>
+<p>in our controller to store the response from our API request as a json string.</p>
+<h3 id="Put-data-in-our-UI"><a href="#Put-data-in-our-UI" class="headerlink" title="Put data in our UI"></a>Put data in our UI</h3><p>Now we can sort the data we need from <code>Images</code> and put them in the right place of our app’s user interface.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;body ng-app=<span class="string">&quot;starter&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ion-pane&gt;</span><br><span class="line">      &lt;ion-header-bar class=<span class="string">&quot;bar-stable&quot;</span>&gt;</span><br><span class="line">        &lt;h1 class=<span class="string">&quot;title&quot;</span>&gt;Taylor Swift<span class="string">&#x27;s Instagram&lt;/h1&gt;</span></span><br><span class="line"><span class="string">      &lt;/ion-header-bar&gt;</span></span><br><span class="line"><span class="string">      &lt;ion-content ng-controller=&quot;ApiCtrl&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;div class=&quot;list card&quot; data-ng-repeat=&quot;image in imageList&quot; &gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">          &lt;div class=&quot;item item-avatar&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;img ng-src=&quot;&#123;&#123;image.caption.from.profile_picture&#125;&#125;&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;h2&gt;&#123;&#123;image.caption.from.username&#125;&#125;&lt;/h2&gt;</span></span><br><span class="line"><span class="string">            &lt;p&gt;&#123;&#123;image.caption.from.full_name&#125;&#125;&lt;/p&gt;</span></span><br><span class="line"><span class="string">          &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">          &lt;div class=&quot;item item-image&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;img data-ng-src=&quot;&#123;&#123;image.images.standard_resolution.url&#125;&#125;&quot;&gt;</span></span><br><span class="line"><span class="string">          &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">          &lt;a class=&quot;item item-icon-left assertive&quot; data-ng-href=&quot;&#123;&#123;image.link&#125;&#125;&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;i class=&quot;icon ion-android-send&quot;&gt;&lt;/i&gt;</span></span><br><span class="line"><span class="string">            Visit Original Post</span></span><br><span class="line"><span class="string">          &lt;/a&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;/ion-content&gt;</span></span><br><span class="line"><span class="string">    &lt;/ion-pane&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Here I changed the page title to <code>Taylor Swift&#39;s Instagram</code> and created a list to show all recent posts (actually it’s 20 posts), each with a link to visit the original Instagram post.</p>
+<p>Run the app, and it’s <a target="_blank" rel="noopener" href="http://45.79.85.36:8100/">working</a>!<br><img src="/img/taylor_swift.png"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Ionic/">Ionic</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Ionic/">Ionic</a><a href="/tags/API/">API</a><a href="/tags/Instagram/">Instagram</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://woaij007.com/2015/08/10/Start-ionic-with-API-Demo/" data-title="Start ionic with API Demo | woaij007&#39;s blog" data-tsina="2141568871" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/15/Deploy-ionic-project-in-Linode-VPS/" title="Deploy ionic projects in Linode VPS">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Deploy ionic projects in Linode VPS</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/04/Binary-Tree/"  title="Binary Tree">
+ <strong>下一篇：</strong><br/> 
+ <span>Binary Tree
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-blank-Ionic-project"><span class="toc-number">1.</span> <span class="toc-text">Create a blank Ionic project</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Ionic"><span class="toc-number">1.1.</span> <span class="toc-text">Install Ionic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Start-a-project"><span class="toc-number">1.2.</span> <span class="toc-text">Start a project</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-your-app"><span class="toc-number">1.3.</span> <span class="toc-text">Run your app</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Instagram-API"><span class="toc-number">2.</span> <span class="toc-text">Get Instagram API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-Your-Application"><span class="toc-number">2.1.</span> <span class="toc-text">Register Your Application</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-API-Console"><span class="toc-number">2.2.</span> <span class="toc-text">Use API Console</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-the-API-demo"><span class="toc-number">3.</span> <span class="toc-text">Build the API demo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Card-Images-CSS"><span class="toc-number">3.1.</span> <span class="toc-text">Use Card Images CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Get-information-from-API"><span class="toc-number">3.2.</span> <span class="toc-text">Get information from API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Put-data-in-our-UI"><span class="toc-number">3.3.</span> <span class="toc-text">Put data in our UI</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Credit-Card/" title="Credit Card">Credit Card<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Data-Structure/" title="Data Structure">Data Structure<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Ionic/" title="Ionic">Ionic<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linode/" title="Linode">Linode<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Road-Test/" title="Road Test">Road Test<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tax-Return/" title="Tax Return">Tax Return<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web-Development/" title="Web Development">Web Development<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Ionic/" title="Ionic">Ionic<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Linode/" title="Linode">Linode<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Credit-Card/" title="Credit Card">Credit Card<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Cashback/" title="Cashback">Cashback<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Tax/" title="Tax">Tax<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/F-1/" title="F-1">F-1<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OPT/" title="OPT">OPT<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Binary-Tree/" title="Binary Tree">Binary Tree<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/API/" title="API">API<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Instagram/" title="Instagram">Instagram<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Road-Test/" title="Road Test">Road Test<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Car-Drive/" title="Car Drive">Car Drive<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Syracuse/" title="Syracuse">Syracuse<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FTP/" title="FTP">FTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FileZilla/" title="FileZilla">FileZilla<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m Mr Cola. <br/>
+			This is my blog to share my coding work!</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/woaij007" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/woaij007" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/woaij007" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/woaij007" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		<a href="https://www.linkedin.com/in/woaij007" target="_blank" class="icon-linkedin" title="linkedin"></a>
+		
+		
+		
+		
+		
+		<a href="mailto:maochun.china@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="Jun Mao">Jun Mao</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'woaij007';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-75679389-1', 'woaij007.com');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
